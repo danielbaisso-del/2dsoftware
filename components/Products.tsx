@@ -6,13 +6,13 @@ import { CheckCircle } from 'lucide-react';
 
 const Products: React.FC = () => {
   return (
-    <section id="produtos" className="py-24 px-6 relative overflow-hidden">
+    <section id="produtos" className="pt-0 pb-24 px-6 relative overflow-visible">
       {/* top fade to blend with EcossistemaParticulas: contained within this section */}
       {/* removed top fade here; particles section provides the visual overlay */}
       <div className="container mx-auto">
-        <div className="flex flex-col items-center mb-16 text-center">
+        <div className="flex flex-col items-center mb-8 text-center -mt-40">
           <div>
-            <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-gradient">Soluções e Funcionalidades</h2>
+            <h2 className="relative z-50 text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 text-white drop-shadow-lg">Soluções e Funcionalidades</h2>
           </div>
         </div>
 

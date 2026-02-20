@@ -1,71 +1,60 @@
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from 'react'
+import { Smartphone, Monitor, Cloud, MapPin, Gift, Code } from 'lucide-react'
 
-const TechSection: React.FC = () => {
-  const stacks = ["Apps Mobile", "Sistemas Web", "Plataformas SaaS", "Mapas Inteligentes", "Programas de Fidelização", "APIs"];
+const features = [
+  { label: 'Apps Mobile', icon: Smartphone },
+  { label: 'Sistemas Web', icon: Monitor },
+  { label: 'Plataformas SaaS', icon: Cloud },
+  { label: 'Mapas Inteligentes', icon: MapPin },
+  { label: 'Programas de Fidelização', icon: Gift },
+  { label: 'APIs e Integrações', icon: Code },
+]
 
+export default function TechSection() {
   return (
-    <section id="tecnologia" className="py-24 px-6 overflow-hidden">
-      <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight">
-              Nossa tecnologia permite desenvolver qualquer tipo de <span className="text-gradient">aplicação.</span>
-            </h2>
-            <p className="text-gray-400 mb-10 text-lg">
-              Utilizamos as ferramentas mais modernas do ecossistema de software para garantir 
-              que seu projeto seja resiliente ao tempo e pronto para o mercado global.
-            </p>
-            
-            <div className="flex flex-wrap gap-3">
-              {stacks.map((item) => (
-                <span 
-                  key={item} 
-                  className="px-4 py-2 glass rounded-full text-sm font-medium hover:bg-white/10 transition-colors"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-          </motion.div>
+    <section id="tecnologia" className="py-24 px-6 bg-gradient-to-b from-white to-slate-50">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
 
-          <div className="relative">
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none"
-            >
-              <div className="w-[400px] h-[400px] border border-blue-500/50 rounded-full" />
-              <div className="absolute w-[300px] h-[300px] border border-purple-500/50 rounded-full" />
-              <div className="absolute w-[200px] h-[200px] border border-emerald-500/50 rounded-full" />
-            </motion.div>
-            
-            <div className="grid grid-cols-2 gap-4 relative z-10">
-              <motion.div 
-                whileHover={{ y: -10 }}
-                className="glass p-8 rounded-3xl text-center"
-              >
-                <div className="text-4xl font-bold mb-1">99%</div>
-                <div className="text-xs text-gray-500 uppercase font-bold tracking-widest">Uptime</div>
-              </motion.div>
-              <motion.div 
-                whileHover={{ y: -10 }}
-                className="glass p-8 rounded-3xl text-center mt-8"
-              >
-                <div className="text-4xl font-bold mb-1">100%</div>
-                <div className="text-xs text-gray-500 uppercase font-bold tracking-widest">Scalable</div>
-              </motion.div>
-            </div>
+        {/* Left: title, subtitle, feature grid */}
+        <div>
+          <h2 className="text-4xl font-bold leading-tight mb-6 text-slate-900">
+            Desenvolvemos qualquer tipo
+            <br />
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-500 bg-clip-text text-transparent">de aplicação</span>
+          </h2>
+
+          <p className="text-slate-600 mb-8 max-w-lg">Tecnologia moderna, escalável e pronta para o mercado.</p>
+
+          <div className="grid grid-cols-2 gap-4 text-slate-700 max-w-md">
+            {features.map((f) => {
+              const Icon = f.icon
+              return (
+                <div key={f.label} className="flex items-center gap-3">
+                  <div className="w-9 h-9 flex items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <div className="text-sm font-medium">{f.label}</div>
+                </div>
+              )
+            })}
           </div>
         </div>
+
+        {/* Right: clean metrics */}
+        <div className="flex gap-6 md:justify-end">
+          <div className="flex-1 p-8 rounded-3xl bg-white text-center border border-slate-100">
+            <div className="text-5xl font-bold text-blue-600">99%</div>
+            <p className="text-slate-500 mt-2 tracking-wider text-sm uppercase">Uptime</p>
+          </div>
+
+          <div className="flex-1 p-8 rounded-3xl bg-white text-center border border-slate-100">
+            <div className="text-5xl font-bold text-indigo-600">100%</div>
+            <p className="text-slate-500 mt-2 tracking-wider text-sm uppercase">Escalável</p>
+          </div>
+        </div>
+
       </div>
     </section>
-  );
-};
-
-export default TechSection;
+  )
+}
